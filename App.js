@@ -27,7 +27,6 @@ export default class extends React.Component {
       country
     });
   }
-  
   getLocation = async () => {
     try {
       // 사용자가 퍼미션(permission)을 준다면

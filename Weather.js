@@ -121,8 +121,6 @@ Weather.propTypes = {
     country: PropTypes.string.isRequired
 };
 
-
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
