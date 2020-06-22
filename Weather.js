@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     },
     temp: {
         fontSize: 42,
-        left: 6,
+        left: 5,
         color: "white",
         textAlign: "center",
         marginBottom: 5
@@ -149,11 +149,11 @@ const styles = StyleSheet.create({
     },
     countryIcon: {
         marginRight: 3,
-        left: -6
+        left: -7
     },
     countryText: {
         fontSize: 18,
-        left: -6,
+        left: -7,
         color: "white"
     },
     bottomContainer: {
