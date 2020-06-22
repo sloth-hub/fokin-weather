@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import PropTypes from "prop-types";
 import { LinearGradient } from "expo-linear-gradient";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 const weatherOptions = {
     Haze: {
@@ -45,7 +45,7 @@ const weatherOptions = {
         iconName: "weather-sunny",
         gradient: ["#FFE47A", "#64b3f4"],
         title: "Clear",
-        subtitle: "It's sunny day!🌞 Let's go outside."
+        subtitle: "It's sunny day!🌞 Let's go outside!"
     },
     Clouds: {
         iconName: "weather-cloudy",
@@ -67,7 +67,7 @@ const weatherOptions = {
     },
 }
 
-export default function Weather({ temp, condition }) {
+export default function Weather({ temp, condition, country }) {
     return (
         <LinearGradient
             colors={weatherOptions[condition].gradient}
@@ -81,6 +81,14 @@ export default function Weather({ temp, condition }) {
                     style={styles.icon}
                     color="white" />
                 <Text style={styles.temp}>{temp}˚</Text>
+                <View style={styles.country}>
+                    <MaterialIcons
+                        size={20}
+                        name="location-on"
+                        style={styles.countryIcon}
+                        color="white" />
+                    <Text style={styles.countryText}>{country}</Text>
+                </View>
             </View>
             <View style={{ ...styles.halfContainer, ...styles.bottomContainer }}>
                 <View style={styles.textContainer}>
@@ -109,8 +117,11 @@ Weather.propTypes = {
         "Haze",
         "Mist",
         "Dust"
-    ]).isRequired
+    ]).isRequired,
+    country: PropTypes.string.isRequired
 };
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -125,7 +136,24 @@ const styles = StyleSheet.create({
     },
     temp: {
         fontSize: 42,
-        left: 15,
+        left: 6,
+        color: "white",
+        textAlign: "center",
+        marginBottom: 5
+    },
+    country: {
+        fontSize: 18,
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row"
+    },
+    countryIcon: {
+        marginRight: 3,
+        left: -6
+    },
+    countryText: {
+        fontSize: 18,
+        left: -6,
         color: "white"
     },
     bottomContainer: {
